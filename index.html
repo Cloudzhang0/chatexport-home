@@ -29,7 +29,7 @@
   }
 
   .container {
-    max-width: 900px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 0 24px;
     flex: 1;
@@ -73,7 +73,7 @@
   /* Platform Cards */
   .platforms {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* 桌面端强制三列 */
     gap: 20px;
     margin: 24px 0 40px;
   }
@@ -82,7 +82,7 @@
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 28px 24px;
+    padding: 28px 20px;
     text-align: center;
     transition: all 0.2s;
     position: relative;
@@ -96,12 +96,12 @@
   }
 
   .platform-icon {
-    font-size: 40px;
+    font-size: 38px;
     margin-bottom: 12px;
   }
 
   .platform-card h3 {
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 700;
     margin-bottom: 6px;
   }
@@ -117,7 +117,7 @@
     display: inline-block;
     background: var(--primary);
     color: #fff;
-    padding: 8px 28px;
+    padding: 8px 24px;
     border-radius: 8px;
     font-size: 14px;
     font-weight: 600;
@@ -159,11 +159,16 @@
     text-decoration: none;
   }
 
+  /* 移动端适配 */
   @media (max-width: 640px) {
     header { padding: 24px 0 16px; }
     header h1 { font-size: 20px; }
+    .platforms {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 移动端自动换行 */
+      gap: 14px;
+      margin: 16px 0 32px;
+    }
     .platform-card { padding: 22px 16px; }
-    .platforms { gap: 14px; margin: 16px 0 32px; }
   }
 </style>
 </head>
@@ -189,13 +194,13 @@
       <span class="btn-go">立即使用 →</span>
     </a>
 
-    <!-- Kimi - 即将上线 -->
-    <div class="platform-card coming-soon">
+    <!-- Kimi - 已上线 -->
+    <a href="http://kimi.chatexport.cn" class="platform-card active" style="text-decoration:none; color:inherit;">
       <div class="platform-icon">🌙</div>
       <h3>Kimi</h3>
-      <p>一键导出 Kimi 对话记录，多格式支持</p>
-      <span class="badge-coming">即将上线</span>
-    </div>
+      <p>支持 Markdown / HTML / JSON / Word 等多种格式，一键保存对话记录</p>
+      <span class="btn-go">立即使用 →</span>
+    </a>
 
     <!-- 豆包 - 即将上线 -->
     <div class="platform-card coming-soon">
@@ -206,12 +211,13 @@
     </div>
 
   </div>
- <!-- 使用指南引导 -->
+
+  <!-- 使用指南引导 -->
   <div style="text-align:center; margin-bottom:32px;">
     💡 <strong>使用指南</strong>：查看
-    <a href="https://deepseek.chatexport.cn" style="color:#4f46e5;font-weight:600;">
-      DeepSeek 插件详细教程与下载
-    </a>
+    <a href="https://deepseek.chatexport.cn" style="color:#4f46e5;font-weight:600;">DeepSeek 插件详细教程与下载</a>
+    &nbsp;|&nbsp;
+    <a href="http://kimi.chatexport.cn" style="color:#4f46e5;font-weight:600;">Kimi 插件详细教程与下载</a>
   </div>
 
 </div>
